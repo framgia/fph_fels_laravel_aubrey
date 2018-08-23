@@ -12,9 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.app');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users/{user}', 'UsersController@show')->name('users.show');
+Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
+Route::post('/users/{user}', 'UsersController@update')->name('users.update');
