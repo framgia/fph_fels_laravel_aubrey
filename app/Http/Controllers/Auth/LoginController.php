@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use App\User;
+
 class LoginController extends Controller
 {
     /*
@@ -21,13 +23,6 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -35,5 +30,17 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Override login redirecTo to redirect to custom route.
+     * 
+     * @return profile url
+     */
+    public function redirectTo()
+    {
+        // Where to redirect users after login.
+
+        return '/users/' . auth()->id();
     }
 }
