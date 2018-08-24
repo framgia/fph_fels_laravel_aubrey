@@ -52,4 +52,9 @@ class User extends Authenticatable
         
         return $this->save();
     }
+    
+    public function loggedIn()
+    {
+        return (auth()->user() == $this);
+    }
 }

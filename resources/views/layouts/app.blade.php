@@ -43,7 +43,7 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         <li><a href="#">Categories</a></li>
-                        <li><a href="#">Members</a></li>
+                        <li><a href="{{ route('users.index') }}">Members</a></li>
 
                         <!-- Authentication Linkhs -->
                         @if (Auth::guest())
