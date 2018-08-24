@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use Image;
-
 use App\User;
 
 class UsersController extends Controller
@@ -48,8 +45,7 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
-    {
-        
+    {   
         return view('users.show', compact('user'));
     }
 
@@ -61,7 +57,6 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-
         return view('users.edit', compact('user'));
     }
 
@@ -74,22 +69,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-
-        $user->fill([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
-
-        if($request->hasFile('avatar')) {
-            $avatar = $request->file('avatar');
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300,300)->save( public_path('/uploads/avatars/' . $filename) );
-
-            $user->avatar = $filename;
-        }
-        
-        $user->save();
+        $user->updateProfile($request);
 
         return redirect()->route('users.show', compact('user'));
     }
