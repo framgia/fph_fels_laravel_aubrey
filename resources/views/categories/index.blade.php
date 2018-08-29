@@ -5,7 +5,15 @@
     <div class="row">
         <div class="col-sm-8 col-md-offset-2">
             <div class="panel">
-                <div class="panel-heading"><h2> All Categories </h2></div>
+                <div class="panel-heading">
+                    <div class="panel-title pull-left">
+                        <h2> All Categories </h2>
+                    </div>
+                    @if(Auth::user()->is_admin)
+                        <div class="panel-title pull-right"> <a href="{{ route('categories.create') }}" class="btn btn-primary btn-lg active" role="button">Create Category</a> </div>
+                    @endif
+                    <div class="clearfix"></div>
+                </div>
                 <div class="panel-body">
                     <ul class="list-group">
                         @foreach($categories as $category)

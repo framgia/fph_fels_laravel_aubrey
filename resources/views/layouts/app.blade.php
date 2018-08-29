@@ -60,7 +60,6 @@
                                             Profile
                                         </a>
                                     </li>
-
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
