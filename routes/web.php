@@ -20,3 +20,5 @@ Auth::routes();
 Route::resource('users', 'UsersController', ['only' => [
     'index', 'show', 'edit', 'update'
 ]]);
+
+Route::resource('categories', 'CategoryController');
