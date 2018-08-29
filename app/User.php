@@ -29,6 +29,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    /**
+     * exclude user currently logged in
+     */
+    public function scopeFilter($query)
+    {
+        return $query->where('id','!=',auth()->user()->id);
+    }
+
     public function updateProfile($request)
     {
         $this->fill([

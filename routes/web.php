@@ -17,6 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/users/{user}', 'UsersController@show')->name('users.show');
-Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
-Route::post('/users/{user}', 'UsersController@update')->name('users.update');
+Route::resource('users', 'UsersController', ['only' => [
+    'index', 'show', 'edit', 'update'
+]]);
