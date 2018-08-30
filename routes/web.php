@@ -21,4 +21,10 @@ Route::resource('users', 'UsersController', ['only' => [
     'index', 'show', 'edit', 'update'
 ]]);
 
-Route::resource('categories', 'CategoryController');
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group( function() {
+	Route::resource('categories', 'CategoryController');
+});
+
+Route::namespace('User')->prefix('user')->name('user.categories.')->group( function() {
+	Route::get('categories', 'CategoryController@index')->name('index');
+});

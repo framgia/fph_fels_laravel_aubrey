@@ -12,6 +12,6 @@ class Category extends Model
 
     public function createCategory($request)
     {
-    	return $this->fill($request->all())->save();
+        return $this->fill($request->all())->save();
     }
 }

@@ -9,7 +9,7 @@
                     <h2> Create A Category </h2>
                 </div>
                 <div class="panel-body">
-                    <form action="{{ route('categories.store') }}" method="post">
+                    <form action="{{ route('admin.categories.store') }}" method="post">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="title">Title</label>
