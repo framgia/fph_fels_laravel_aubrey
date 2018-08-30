@@ -52,10 +52,8 @@ class CategoryController extends Controller
             'desc'  => 'required',
         ]);
 
-        $category = Category::create([
-            'title' => $request->title,
-            'desc'  => $request->desc,               
-        ]);
+        $category = new Category();
+        $category->createCategory($request);
 
         return redirect()->route('categories.index');
     }
