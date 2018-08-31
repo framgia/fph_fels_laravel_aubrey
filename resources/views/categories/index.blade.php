@@ -14,7 +14,15 @@
                 <div class="panel-body">
                     <ul class="list-group">
                         @foreach($categories as $category)
-                            <li class="list-group-item"><h2>{{ $category->title }}</h2> <p> {{ $category->desc }} </p></li>
+                            <li class="list-group-item">
+                                <h2>{{ $category->title }}</h2>
+                                <p> {{ $category->desc }} </p>
+                            </li>
+                            <span>
+                                <a href="#" class="btn btn-sm btn-primary">Add Words</a>
+                                <a href="{{ route('categories.edit', $category) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            </span>
                         @endforeach
                     </ul>
                     <div class="text-center">

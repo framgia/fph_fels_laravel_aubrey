@@ -17,10 +17,15 @@
                 <div class="panel-body">
                     <ul class="list-group">
                         @foreach($categories as $category)
-                            <form method="post" action="#">
-                                {{ csrf_field() }}
-                                <li class="list-group-item"> <a href="#"> <h2>{{ $category->title }}</h2> </a> <p> {{ $category->desc }} </p></li>
-                            </form>
+                            <li class="list-group-item">
+                                <a href="#"><h2>{{ $category->title }}</h2></a>
+                                <p> {{ $category->desc }} </p>
+                                <span>
+                                    <a href="#" class="btn btn-sm btn-primary">Add Words</a>
+                                    <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                </span>
+                            </li>
                         @endforeach
                     </ul>
                     <div class="text-center">

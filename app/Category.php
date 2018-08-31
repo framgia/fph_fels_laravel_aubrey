@@ -10,7 +10,7 @@ class Category extends Model
         'title', 'desc'
     ];
 
-    public function createCategory($request)
+    public function updateCategory($request)
     {
         return $this->fill($request->all())->save();
     }
