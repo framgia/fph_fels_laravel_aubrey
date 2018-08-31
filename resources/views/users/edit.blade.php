@@ -11,7 +11,7 @@
 
 	            	<form enctype="multipart/form-data" class="form-horizontal" method="POST" action="{{ route('users.update', $user )}}">
                         {{ csrf_field() }}
-
+                        {{ method_field('PATCH') }}
                         <div class="col-sm-11 col-md-offset-1">
                             <img src="/uploads/avatars/{{ $user->avatar }}" style="width:100px;height:100px;">
                             <input id=avatar type="file" name="avatar" value="{{ is_null(old('avatar')) ? $user->avatar : old('avatar') }}">

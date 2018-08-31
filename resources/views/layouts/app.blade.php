@@ -47,7 +47,11 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li><a href=" {{ route('categories.index') }}">Categories</a></li>
+                            @if(Auth::user()->is_admin)
+                                <li><a href=" {{ route('admin.categories.index') }}"> Manage Categories</a></li>
+                            @else
+                                <li><a href=" {{ route('user.categories.index') }}"> Categories</a></li>
+                            @endif
                             <li><a href="{{ route('users.index') }}">Members</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -60,7 +64,6 @@
                                             Profile
                                         </a>
                                     </li>
-
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
