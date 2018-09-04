@@ -14,7 +14,10 @@
                 <div class="panel-body">
                     <ul class="list-group">
                         @foreach($categories as $category)
-                            <li class="list-group-item"><h2>{{ $category->title }}</h2> <p> {{ $category->desc }} </p></li>
+                            <li class="list-group-item">
+                                <h2>{{ $category->title }}</h2>
+                                <p> {{ $category->desc }} </p>
+                            </li>
                         @endforeach
                     </ul>
                     <div class="text-center">
