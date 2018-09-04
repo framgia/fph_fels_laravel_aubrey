@@ -23,6 +23,7 @@ Route::resource('users', 'UsersController', ['only' => [
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group( function() {
 	Route::resource('categories', 'CategoryController');
+	Route::resource('categories/{category}/words', 'WordsController');
 });
 
 Route::namespace('User')->prefix('user')->name('user.categories.')->group( function() {
