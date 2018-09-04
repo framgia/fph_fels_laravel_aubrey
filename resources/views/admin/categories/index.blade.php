@@ -23,7 +23,11 @@
                                 <span>
                                     <a href="#" class="btn btn-sm btn-primary">Add Words</a>
                                     <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                    <form class="form-inline" action="{{ route('admin.categories.destroy', $category) }}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button type="submit" class="btn btn-sm btn-danger"/>Delete</button>
+                                    </form>
                                 </span>
                             </li>
                         @endforeach
